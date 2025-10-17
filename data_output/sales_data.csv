@@ -1,0 +1,101 @@
+id_venda,plataforma,valor_venda,data_venda,status
+1,Amazon,401.65,2025-08-19,Cancelado
+2,Magalu,41.43,2025-07-08,Reembolsado
+3,Amazon,148.01,2025-11-10,Pago
+4,Amazon,128.7,2025-04-25,Pago
+5,Magalu,276.23,2025-11-23,Pago
+6,Shopee,210.5,2025-10-03,Pago
+7,Tiktok Shop,361.73,2025-11-24,Pendente
+8,Shein,20.64,2025-12-29,Pendente
+9,Amazon,127.29,2025-12-05,Pendente
+10,Shopee,299.06,2025-11-18,Reembolsado
+11,Tiktok Shop,329.42,2025-02-03,Reembolsado
+12,Tiktok Shop,159.33,2025-08-14,Pago
+13,Amazon,85.29,2025-06-30,Pago
+14,Shein,354.17,2025-08-15,Pendente
+15,Mercado Livre,72.17,2025-09-28,Pago
+16,Amazon,114.61,2025-10-21,Pago
+17,Shein,89.31,2025-07-10,Pago
+18,Mercado Livre,369.04,2025-04-26,Reembolsado
+19,Amazon,65.95,2025-03-24,Reembolsado
+20,Shopee,281.88,2025-06-04,Cancelado
+21,Amazon,17.68,2025-06-22,Pago
+22,Magalu,48.02,2025-10-16,Pago
+23,Shopee,142.63,2025-04-04,Pago
+24,Shopee,187.28,2025-07-02,Pago
+25,Mercado Livre,376.55,2025-03-04,Pendente
+26,Magalu,471.92,2025-01-21,Reembolsado
+27,Amazon,119.22,2025-10-24,Reembolsado
+28,Magalu,263.54,2025-05-12,Cancelado
+29,Amazon,213.34,2025-06-27,Cancelado
+30,Mercado Livre,105.32,2025-08-16,Pendente
+31,Tiktok Shop,134.01,2025-06-24,Reembolsado
+32,Shein,367.57,2025-12-05,Pago
+33,Magalu,499.58,2025-11-23,Cancelado
+34,Shopee,239.75,2025-10-28,Reembolsado
+35,Shein,341.39,2025-11-25,Reembolsado
+36,Magalu,208.72,2025-10-30,Reembolsado
+37,Shopee,31.95,2025-01-17,Reembolsado
+38,Amazon,318.75,2025-05-19,Cancelado
+39,Magalu,124.87,2025-09-26,Cancelado
+40,Mercado Livre,257.88,2025-03-12,Cancelado
+41,Mercado Livre,196.33,2025-07-25,Pendente
+42,Magalu,194.36,2025-01-20,Reembolsado
+43,Shopee,189.72,2025-09-04,Pendente
+44,Shopee,192.77,2025-07-13,Cancelado
+45,Tiktok Shop,306.24,2025-10-03,Reembolsado
+46,Tiktok Shop,168.84,2025-09-11,Pendente
+47,Shein,322.3,2025-08-18,Pago
+48,Tiktok Shop,466.19,2025-08-10,Reembolsado
+49,Magalu,80.28,2025-11-02,Reembolsado
+50,Magalu,442.26,2025-07-28,Reembolsado
+51,Shein,386.63,2025-08-19,Pago
+52,Shein,330.83,2025-07-17,Pago
+53,Shein,309.87,2025-09-01,Reembolsado
+54,Tiktok Shop,82.22,2025-03-16,Pago
+55,Magalu,440.11,2025-05-07,Pago
+56,Tiktok Shop,485.14,2025-05-23,Pendente
+57,Shopee,201.95,2025-12-24,Pago
+58,Amazon,321.72,2025-04-30,Cancelado
+59,Tiktok Shop,343.15,2025-02-18,Reembolsado
+60,Magalu,96.97,2025-10-07,Pago
+61,Tiktok Shop,218.97,2025-01-26,Pago
+62,Amazon,210.85,2025-12-13,Cancelado
+63,Mercado Livre,171.63,2025-12-14,Pago
+64,Amazon,88.59,2025-01-02,Cancelado
+65,Tiktok Shop,243.51,2025-03-12,Reembolsado
+66,Amazon,350.4,2025-03-03,Reembolsado
+67,Magalu,319.81,2025-01-30,Cancelado
+68,Amazon,148.31,2025-12-11,Pendente
+69,Mercado Livre,361.19,2025-11-03,Pendente
+70,Magalu,421.97,2025-07-16,Pendente
+71,Mercado Livre,430.51,2025-09-07,Cancelado
+72,Tiktok Shop,457.17,2025-04-01,Pago
+73,Amazon,433.35,2025-10-23,Cancelado
+74,Magalu,386.07,2025-04-04,Reembolsado
+75,Amazon,365.89,2025-11-15,Reembolsado
+76,Amazon,322.61,2025-02-21,Reembolsado
+77,Mercado Livre,333.64,2025-02-13,Reembolsado
+78,Amazon,165.68,2025-10-16,Cancelado
+79,Magalu,253.08,2025-06-13,Pendente
+80,Shopee,214.62,2025-02-20,Cancelado
+81,Amazon,107.62,2025-11-01,Cancelado
+82,Tiktok Shop,360.77,2025-10-18,Pago
+83,Shopee,34.6,2025-11-07,Pendente
+84,Amazon,340.17,2025-08-17,Pago
+85,Magalu,244.29,2025-05-06,Pendente
+86,Shopee,429.1,2025-09-24,Cancelado
+87,Amazon,320.12,2025-09-17,Pago
+88,Magalu,280.65,2025-10-31,Pago
+89,Amazon,96.23,2025-12-14,Cancelado
+90,Amazon,365.24,2025-03-24,Reembolsado
+91,Tiktok Shop,430.19,2025-05-14,Reembolsado
+92,Amazon,293.95,2025-03-25,Cancelado
+93,Shopee,180.86,2025-07-30,Cancelado
+94,Shein,284.52,2025-01-08,Reembolsado
+95,Magalu,385.87,2025-02-24,Cancelado
+96,Shopee,168.93,2025-10-17,Cancelado
+97,Amazon,489.39,2025-04-10,Pago
+98,Tiktok Shop,367.95,2025-04-24,Pendente
+99,Tiktok Shop,251.17,2025-09-21,Reembolsado
+100,Shein,425.99,2025-05-09,Cancelado
