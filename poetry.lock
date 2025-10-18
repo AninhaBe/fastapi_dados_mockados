@@ -189,17 +189,6 @@ files = [
 ]
 
 [[package]]
-name = "dbldatagen"
-version = "0.4.0.post1"
-description = "Databricks Labs -  PySpark Synthetic Data Generator"
-optional = false
-python-versions = ">=3.8.10"
-files = [
-    {file = "dbldatagen-0.4.0.post1-py3-none-any.whl", hash = "sha256:b94b5fcf2bf5113fe789f5cdf92b50eb62b5e6c25fc867b634d6543cc1e79d40"},
-    {file = "dbldatagen-0.4.0.post1.tar.gz", hash = "sha256:a254fba2a6384c75e2dfb38b1e8cdc1c52b417c59fd6ec977e11175ad7567f34"},
-]
-
-[[package]]
 name = "dnspython"
 version = "2.8.0"
 description = "DNS toolkit"
@@ -318,17 +307,6 @@ uvicorn = {version = ">=0.15.0", extras = ["standard"]}
 
 [package.extras]
 standard = ["uvicorn[standard] (>=0.15.0)"]
-
-[[package]]
-name = "findspark"
-version = "2.0.1"
-description = "Find pyspark to make it importable."
-optional = false
-python-versions = "*"
-files = [
-    {file = "findspark-2.0.1-py2.py3-none-any.whl", hash = "sha256:e5d5415ff8ced6b173b801e12fc90c1eefca1fb6bf9c19c4fc1f235d4222e753"},
-    {file = "findspark-2.0.1.tar.gz", hash = "sha256:aa10a96cb616cab329181d72e8ef13d2dc453b4babd02b5482471a0882c1195e"},
-]
 
 [[package]]
 name = "h11"
@@ -791,17 +769,6 @@ test = ["hypothesis (>=6.46.1)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.9.2)"]
 
 [[package]]
-name = "py4j"
-version = "0.10.9.9"
-description = "Enables Python programs to dynamically access arbitrary Java objects"
-optional = false
-python-versions = "*"
-files = [
-    {file = "py4j-0.10.9.9-py2.py3-none-any.whl", hash = "sha256:c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533"},
-    {file = "py4j-0.10.9.9.tar.gz", hash = "sha256:f694cad19efa5bd1dee4f3e5270eb406613c974394035e5bfc4ec1aba870b879"},
-]
-
-[[package]]
 name = "pydantic"
 version = "2.12.2"
 description = "Data validation using Python type hints"
@@ -965,40 +932,6 @@ files = [
 
 [package.extras]
 windows-terminal = ["colorama (>=0.4.6)"]
-
-[[package]]
-name = "pyparsing"
-version = "3.2.5"
-description = "pyparsing - Classes and methods to define and execute parsing grammars"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "pyparsing-3.2.5-py3-none-any.whl", hash = "sha256:e38a4f02064cf41fe6593d328d0512495ad1f3d8a91c4f73fc401b3079a59a5e"},
-    {file = "pyparsing-3.2.5.tar.gz", hash = "sha256:2df8d5b7b2802ef88e8d016a2eb9c7aeaa923529cd251ed0fe4608275d4105b6"},
-]
-
-[package.extras]
-diagrams = ["jinja2", "railroad-diagrams"]
-
-[[package]]
-name = "pyspark"
-version = "4.0.1"
-description = "Apache Spark Python API"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "pyspark-4.0.1.tar.gz", hash = "sha256:9d1f22d994f60369228397e3479003ffe2dd736ba79165003246ff7bd48e2c73"},
-]
-
-[package.dependencies]
-py4j = "0.10.9.9"
-
-[package.extras]
-connect = ["googleapis-common-protos (>=1.65.0)", "grpcio (>=1.67.0)", "grpcio-status (>=1.67.0)", "numpy (>=1.21)", "pandas (>=2.0.0)", "pyarrow (>=11.0.0)"]
-ml = ["numpy (>=1.21)"]
-mllib = ["numpy (>=1.21)"]
-pandas-on-spark = ["numpy (>=1.21)", "pandas (>=2.0.0)", "pyarrow (>=11.0.0)"]
-sql = ["numpy (>=1.21)", "pandas (>=2.0.0)", "pyarrow (>=11.0.0)"]
 
 [[package]]
 name = "python-dateutil"
@@ -1795,4 +1728,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "e0ceb53c5664182b347d6dffc01dd45213b2ae28fcf9f3a01046e063bb818778"
+content-hash = "4cbadb056cb21791383d0a412394a25853bf22cd7bbaeef16f6c2f9b03f10a6c"
