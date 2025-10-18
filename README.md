@@ -1,101 +1,141 @@
-# fastapi_dados_mockados
+# API de geração de vendas mockadas com FastAPI
 
-Projeto simples em FastAPI que gera dados de vendas mockados usando a biblioteca
-Faker e expõe endpoints para gerar e salvar esses dados em CSV. Ótimo para testes,
-provas de conceito e para povoar ambientes de desenvolvimento com dados realistas.
+Este projeto fornece uma API simples construída com [FastAPI](https://fastapi.tiangolo.com/) para gerar arquivos CSV com vendas fictícias utilizando a biblioteca [Faker](https://faker.readthedocs.io/). O objetivo é acelerar provas de conceito, demonstrações ou testes que precisem de dados tabulares com aparência realista sem depender de bases externas.
 
-## Estrutura principal
+A rota principal `/gerador_vendas` cria (ou sobrescreve) `data_output/sales_data.csv` com a quantidade de registros solicitada e retorna uma resposta JSON confirmando o caminho do arquivo.
 
-- `main.py` — aplicação FastAPI que implementa o gerador de vendas (`/gerador_vendas`).
-- `data_output/` — diretório onde o CSV gerado é salvo (`sales_data.csv`).
-- `test_spark.py` — arquivo de exemplo (pode ser removido se não for usado).
-- `pyproject.toml` — dependências do projeto (Poetry).
+## Conteúdo
 
-> Observação: o projeto gera dados com a biblioteca `Faker` (pt_BR). Não é
-> necessário PySpark para o funcionamento padrão da API.
+1. [Tecnologias utilizadas](#tecnologias-utilizadas)
+2. [Estrutura do projeto](#estrutura-do-projeto)
+3. [Pré-requisitos](#pré-requisitos)
+4. [Instalação](#instalação)
+5. [Executando a API](#executando-a-api)
+6. [Endpoints](#endpoints)
+7. [Formato dos dados](#formato-dos-dados)
+8. [Arquivos auxiliares](#arquivos-auxiliares)
+9. [Personalização](#personalização)
+10. [Próximos passos sugeridos](#próximos-passos-sugeridos)
+
+## Tecnologias utilizadas
+
+- Python 3.12+
+- FastAPI com documentação automática (Swagger UI / ReDoc)
+- Uvicorn para executar a aplicação ASGI
+- Faker com localidade `pt_BR` para gerar datas realistas
+- Poetry para gerenciamento de dependências (recomendado)
+
+> O arquivo `pyproject.toml` lista dependências adicionais como `pandas`, `numpy`, `pyspark` e `dbldatagen`. Elas são úteis para cenários de engenharia de dados, mas não são obrigatórias para executar esta API específica.
+
+## Estrutura do projeto
+
+```text
+├── main.py         # Aplicação FastAPI com as rotas e a geração do CSV
+├── data_output/    # Pasta onde os arquivos gerados são salvos
+├── test_api.py     # Script exemplo de consumo (precisa de ajustes de URL)
+├── pyproject.toml  # Definição de dependências via Poetry
+└── README.md       # Documentação do projeto
+```
+
+O diretório `data_output/` já contém um CSV e um arquivo Parquet de exemplo. Ao gerar novos dados, o CSV é sobrescrito automaticamente.
 
 ## Pré-requisitos
 
-- Python 3.12+
-- Poetry (recomendado) para instalar dependências
-
-As dependências estão declaradas em `pyproject.toml` (por exemplo: `fastapi`,
-`uvicorn`, `faker`, `pandas`, etc.).
+- Python 3.12 ou superior instalado.
+- [Poetry](https://python-poetry.org/docs/#installation) (opcional, mas recomendado).
+- Ferramentas para testar requisições HTTP, como `curl`, `HTTPie` ou até mesmo o navegador via Swagger UI.
 
 ## Instalação
 
-1. Instale o Poetry: https://python-poetry.org/
-2. No diretório do projeto, instale dependências:
+1. Clone o repositório e acesse a pasta do projeto:
+   ```bash
+   git clone https://github.com/<sua-conta>/fastapi_dados_mockados.git
+   cd fastapi_dados_mockados
+   ```
+2. Instale as dependências com o Poetry:
+   ```bash
+   poetry install
+   ```
+3. (Opcional) Ative o ambiente virtual do Poetry:
+   ```bash
+   poetry shell
+   ```
 
-```bash
-poetry install
-```
-
-3. (Opcional) Entre no shell do Poetry:
-
-```bash
-poetry shell
-```
+Se preferir usar `pip`, gere um arquivo de requisitos com `poetry export --without-hashes -f requirements.txt > requirements.txt` e instale com `pip install -r requirements.txt`.
 
 ## Executando a API
 
-Inicie o servidor Uvicorn apontando para o módulo `main`:
+Inicie o servidor com Uvicorn apontando para o módulo `main`:
 
 ```bash
 uvicorn main:app --reload --port 8000
 ```
 
-## Endpoints principais
+- `--reload` reinicia o servidor automaticamente durante o desenvolvimento.
+- Ajuste a porta conforme necessário.
 
-- GET /  — rota de saúde (ex.: retorna {"status": "api funfando"}).
-- GET /gerador_vendas?records={n} — gera `n` registros (padrão: 10) e grava um CSV
-	em `data_output/sales_data.csv`.
+Com o servidor em execução, acesse `http://127.0.0.1:8000/docs` para utilizar a documentação interativa gerada automaticamente pelo FastAPI.
 
-Parâmetros da rota `/gerador_vendas`:
-- `records` (opcional, int): quantidade de registros a gerar. Exemplo:
+## Endpoints
+
+| Método | Rota             | Descrição                                                                    |
+|--------|------------------|-------------------------------------------------------------------------------|
+| GET    | `/`              | Verifica se a API está funcionando, retornando `{ "status": "api funfando" }`. |
+| GET    | `/gerador_vendas` | Gera o arquivo CSV com vendas simuladas. Aceita o parâmetro de query `records` (padrão 10). |
+
+Exemplo de chamada:
 
 ```bash
 curl "http://127.0.0.1:8000/gerador_vendas?records=25"
 ```
 
-Resposta (exemplo): JSON com mensagem, quantidade de registros e caminho do CSV.
+Resposta típica:
 
-## Formato do CSV gerado
-
-O CSV `data_output/sales_data.csv` contém as colunas:
-
-- `id_venda` — identificador sequencial
-- `plataforma` — exemplo: Mercado Livre, Shopee, Amazon, Magalu, etc.
-- `valor_venda` — valor (float)
-- `data_venda` — data em formato ISO (YYYY-MM-DD)
-- `status` — Pago, Pendente, Cancelado, Reembolsado
-
-## Exemplo: ler o CSV com pandas
-
-```python
-import pandas as pd
-df = pd.read_csv('data_output/sales_data.csv')
-print(df.head())
+```json
+{
+  "message": "Dados gerados com sucesso",
+  "records": 25,
+  "csv_path": "data_output/sales_data.csv"
+}
 ```
 
-## Observações
+## Formato dos dados
 
-- Se `data_output/` não existir, a API criará o diretório ao gerar o CSV.
-- O gerador de dados usa `Faker('pt_BR')` para criar datas e dados locais.
-- Se houver arquivos de exemplo que você não utiliza (ex.: `test_spark.py`),
-	considere removê-los para manter o repositório enxuto.
+Os dados são salvos com codificação UTF-8 e possuem as seguintes colunas:
 
-## Próximos passos (sugestões)
+| Coluna        | Descrição                                                                 | Exemplo             |
+|---------------|---------------------------------------------------------------------------|---------------------|
+| `id_venda`    | Identificador sequencial iniciando em 1.                                   | `17`                |
+| `plataforma`  | Marketplace aleatório (Mercado Livre, Shopee, Amazon, Magalu etc.).       | `"Shopee"`         |
+| `valor_venda` | Valor monetário entre R$ 10,00 e R$ 500,00 com duas casas decimais.       | `354.90`            |
+| `data_venda`  | Data no intervalo de 01/01/2025 a 31/12/2025, em formato ISO (`YYYY-MM-DD`). | `"2025-04-15"`     |
+| `status`      | Situação da venda (Pago, Pendente, Cancelado ou Reembolsado).             | `"Pago"`           |
 
-- Adicionar endpoint opcional que retorne os dados gerados em JSON sem
-	necessariamente escrever o CSV.
-- Adicionar parâmetros para controlar faixa de datas, lista de plataformas e
-	status possíveis pela query string.
-- Implementar testes automáticos com `pytest` para garantir o formato do CSV
-	e o comportamento do endpoint.
+A data é gerada como objeto `datetime.date` e convertida para string com `isoformat()` antes de ser escrita no CSV.
+
+## Arquivos auxiliares
+
+- `data_output/sales_data.csv`: arquivo principal gerado pela rota.
+- `data_output/sales_data.parquet`: exemplo de saída em Parquet (não é atualizado automaticamente).
+- `test_api.py`: script simples usando `requests`. Ele aponta para `http://127.0.0.1:8001/generate_sales`; ajuste a URL para `http://127.0.0.1:8000/gerador_vendas` e adapte as chaves do JSON (`message`, `records`, `csv_path`) caso queira utilizá-lo com esta API.
+
+## Personalização
+
+Você pode modificar facilmente o comportamento editando `main.py`:
+
+- **Período das vendas**: altere `data_inicial` e `data_final` para usar outro intervalo.
+- **Lista de marketplaces e status**: ajuste as listas `plataformas` e `status` para refletir o seu domínio.
+- **Formato de saída**: substitua a escrita em CSV por outra estratégia (por exemplo, gerar JSON ou Parquet) conforme a necessidade.
+- **Validação de parâmetros**: adicione limites ou validações para `records` com os recursos do FastAPI (`Query`, `HTTPException`, etc.).
+
+## Próximos passos sugeridos
+
+1. Expor um endpoint adicional que retorne os dados diretamente em JSON.
+2. Criar testes automatizados utilizando `pytest` e `fastapi.testclient` para cobrir as rotas existentes.
+3. Adicionar um `Dockerfile` para facilitar a execução em contêineres.
+4. Permitir configurações avançadas via corpo da requisição (listas personalizadas, faixas de valores, seed aleatória).
+5. Publicar a API em um serviço gerenciado (Railway, Render, etc.) para testes sem precisar rodar localmente.
 
 ---
 
-Se quiser, eu crio um pequeno script em `examples/` que chama o endpoint e
-imprime as primeiras linhas usando `requests` + `pandas`. Diga se prefere isso
-que eu já adiciono.
+Ficou com dúvidas ou tem sugestões? Abra uma issue ou envie um pull request!
