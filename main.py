@@ -15,6 +15,9 @@ def root():
 
 @app.get("/gerador_vendas")
 def gerar_vendas(records: int = 10):
+    """
+    gera os dados mockados e salva em csv e parquet
+    """
     try:
         output_dir = "data_output"
         os.makedirs(output_dir, exist_ok=True)

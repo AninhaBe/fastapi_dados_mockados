@@ -117,25 +117,5 @@ A data é gerada como objeto `datetime.date` e convertida para string com `isofo
 
 - `data_output/sales_data.csv`: arquivo principal gerado pela rota.
 - `data_output/sales_data.parquet`: exemplo de saída em Parquet (não é atualizado automaticamente).
-- `test_api.py`: script simples usando `requests`. Ele aponta para `http://127.0.0.1:8001/generate_sales`; ajuste a URL para `http://127.0.0.1:8000/gerador_vendas` e adapte as chaves do JSON (`message`, `records`, `csv_path`) caso queira utilizá-lo com esta API.
+- `test_api.py`: script simples usando `requests`. Ele aponta para `http://127.0.0.1:8000/generate_sales`; ajuste a URL para `http://127.0.0.1:8000/gerador_vendas` e adapte as chaves do JSON (`message`, `records`, `csv_path`) caso queira utilizá-lo com esta API.
 
-## Personalização
-
-Você pode modificar facilmente o comportamento editando `main.py`:
-
-- **Período das vendas**: altere `data_inicial` e `data_final` para usar outro intervalo.
-- **Lista de marketplaces e status**: ajuste as listas `plataformas` e `status` para refletir o seu domínio.
-- **Formato de saída**: substitua a escrita em CSV por outra estratégia (por exemplo, gerar JSON ou Parquet) conforme a necessidade.
-- **Validação de parâmetros**: adicione limites ou validações para `records` com os recursos do FastAPI (`Query`, `HTTPException`, etc.).
-
-## Próximos passos sugeridos
-
-1. Expor um endpoint adicional que retorne os dados diretamente em JSON.
-2. Criar testes automatizados utilizando `pytest` e `fastapi.testclient` para cobrir as rotas existentes.
-3. Adicionar um `Dockerfile` para facilitar a execução em contêineres.
-4. Permitir configurações avançadas via corpo da requisição (listas personalizadas, faixas de valores, seed aleatória).
-5. Publicar a API em um serviço gerenciado (Railway, Render, etc.) para testes sem precisar rodar localmente.
-
----
-
-Ficou com dúvidas ou tem sugestões? Abra uma issue ou envie um pull request!
